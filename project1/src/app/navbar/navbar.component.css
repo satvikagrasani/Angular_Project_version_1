@@ -1,0 +1,18 @@
+/* Style for the navigation bar */
+.navbar {
+    overflow: hidden;
+}
+
+/* Style for the navigation links */
+.navbar a {
+    float: left; /* Float the links to the left */
+    display: block;
+    padding: 10px 20px; /* Add some padding for better readability */
+    text-decoration: none;
+    color: #333; /* Text color */
+}
+
+/* Style for the navigation links on hover */
+.navbar a:hover {
+    background-color: #ddd; /* Light grey background color on hover */
+}

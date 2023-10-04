@@ -1,0 +1,24 @@
+<div style="padding-left: 140px; padding-right: 60px;">
+    <p style="color: aqua; font-size: 35px;">
+        <span>Login</span>
+    </p>
+    <hr>
+</div>
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 mt-5">
+        <form>
+          <div class="mb-3">
+            <label for="id" class="form-label">Employee ID</label>
+            <input type="text" class="form-control" id="id"  [(ngModel)]="searchId" name="searchId" required>
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Password(DOB)</label>
+            <input type="password" class="form-control" id="address"  [(ngModel)]="searchDOB" name="address" required>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="onSubmit()">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

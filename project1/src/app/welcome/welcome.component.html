@@ -1,0 +1,44 @@
+<div style="padding-left: 140px; padding-right: 60px;">
+    <p style="font-size: 35px;">
+        <span style="color: aqua; ">Welcome </span>{{firstName}}
+    </p>
+    <hr>
+    <button class="custom-logout-button btn btn-danger" (click)="logout()" style="float: right;">Logout</button>
+</div>
+
+<div class="container d-flex justify-content-center align-items-start" style="height: 100vh;">
+    <table class="table border-primary w-25 ">
+      <tbody>
+        <tr>
+          <td class="table-header">ID</td>
+          <td class="table-data">{{ Id }}</td>
+        </tr>
+        <tr>
+          <td class="table-header">First Name</td>
+          <td class="table-data">{{ firstName }}</td>
+        </tr>
+        <tr>
+          <td class="table-header">Last Name</td>
+          <td class="table-data">{{ lastName }}</td>
+        </tr>
+        <tr>
+          <td class="table-header">Address</td>
+          <td class="table-data">{{ address }}</td>
+        </tr>
+        <tr>
+          <td class="table-header">Contact No</td>
+          <td class="table-data">{{ contactNo }}</td>
+        </tr>
+        <tr>
+          <td class="table-header">DOB</td>
+          <td class="table-data">{{ dob }}</td>
+        </tr>
+        <tr>
+          <td class="table-header">Email</td>
+          <td class="table-data">{{ email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+

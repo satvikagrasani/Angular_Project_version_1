@@ -1,0 +1,22 @@
+{
+  "employee": [
+    {
+      "firstName": "Satvik",
+      "lastName": "Agrasani",
+      "contactNo": "1234567551",
+      "email": "admin@gmail.com",
+      "dob": "2023-09-01",
+      "address": "Kalwa",
+      "id": 1
+    },
+    {
+      "firstName": "Pralhad",
+      "lastName": "Behera",
+      "contactNo": "9167167655",
+      "email": "admin@gmail.com",
+      "dob": "2023-09-14",
+      "address": "Thane",
+      "id": 2
+    }
+  ]
+}

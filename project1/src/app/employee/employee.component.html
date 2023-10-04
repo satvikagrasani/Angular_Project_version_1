@@ -1,0 +1,119 @@
+<div style="padding-left: 140px; padding-right: 60px;">
+  <p style="color: aqua; font-size: 35px;">
+      <span>Employee Management</span>
+  </p>
+  <hr>
+</div>
+<br><br>
+<div class="container" style="padding-left: 90px;">
+  <div class="row">
+      <div class="col" style="padding-right: 10px;">
+          <h1 style="color: darkgreen;">Employee Form</h1>
+          <hr>
+          <br>
+          <form class="row g-1" [formGroup]="form">
+              <div class="row">
+                  <div class="col">
+                      <label for="firstName" class="form-label">First Name</label>
+                      <input type="text" id="firstName" class="form-control" formControlName="firstName">
+                      <br>
+                      <div *ngIf="form.get('firstName')?.invalid && (form.get('firstName')?.dirty && form.get('firstName')?.touched)" class="validation-error">
+                          <div *ngIf="form.get('firstName')?.hasError('required')">First Name is required.</div>
+                          <div *ngIf="form.get('firstName')?.hasError('minlength')">First Name must be at least 4 characters.</div>
+                          <div *ngIf="form.get('firstName')?.hasError('pattern')">First Name must start with an uppercase letter and contain only alphabetic characters.</div>
+                          <br>
+                      </div>
+                  </div>
+                  <div class="col">
+                      <label for="lastName" class="form-label">Last Name</label>
+                      <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                      <br>
+                      <div *ngIf="form.get('lastName')?.invalid && form.get('lastName')?.dirty && form.get('lastName')?.touched" class="validation-error">
+                          <div *ngIf="form.get('lastName')?.hasError('required')"> Last Name is Required </div>
+                          <div *ngIf="form.get('lastName')?.hasError('minlength')"> Last Name Must Be at least 5 characters </div>
+                          <div *ngIf="form.get('lastName')?.hasError('pattern')">Last Name must start with an uppercase letter and contain only alphabetic characters.</div>
+                          <br>
+                      </div>
+                  </div>
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col">
+                      <label for="contactNo" class="form-label">Contact No</label>
+                      <input type="text" class="form-control" id="contactNo" formControlName="contactNo">
+                      <br>
+                      <div *ngIf="form.get('contactNo')?.invalid 
+                      && form.get('contactNo')?.dirty 
+                      && form.get('contactNo')?.touched" class="validation-error">
+                          <div *ngIf="form.get('contactNo')?.hasError('required')"> Contact is Required </div>
+                          <div *ngIf="form.get('contactNo')?.hasError('pattern')"> Must enter a Number </div>
+                          <br>
+                      </div>
+                  </div>
+                  <div class="col">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="email" formControlName="email">
+                      <div *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched)" class="validation-error">
+                          <div *ngIf="form.get('email')?.hasError('required')">Email is Required</div>
+                          <div *ngIf="form.get('email')?.hasError('pattern')">Invalid Email Format</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <label for="dob" class="form-label">DOB</label>
+                      <input type="date" class="form-control" id="dob" formControlName="dob">
+                      <br>
+                  </div>
+                  <div class="col">
+                      <label for="address" class="form-label">Address</label>
+                      <input class="form-control" id="address" formControlName="address">
+                      <br>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col">
+                      <button type="submit" (click)="addEmployee()" class="btn btn-success w-100"
+                          [disabled]="!form.valid || form.pristine">Add Employee</button>
+                  </div>
+              </div>
+          </form>
+      </div>
+      <div class="col">
+          <h1 style="color: darkgreen;">Employee Records</h1>
+          <hr>
+          <br>
+          <table class="table border-primary">
+              <thead>
+                  <tr>
+                      <th>Full&nbsp;Name</th>
+                      <th>Contact#</th>
+                      <th>Email</th>
+                      <th>DOB</th>
+                      <th>Address</th>
+                      <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let emp of employees">
+                      <td>{{ emp.firstName}} {{ emp.lastName}}</td>
+                      <td>{{ emp.contactNo }}</td>
+                      <td>{{ emp.email }}</td>
+                      <td>{{ emp.dob }}</td>
+                      <td>{{ emp.address }}</td>
+                      <td>
+                          <div class="d-flex">
+                              <button mat-icon-button color="primary" [routerLink]="['/edit',emp.id]">
+                                <mat-icon>edit</mat-icon>
+                              </button>
+                              <button mat-icon-button color="warn" (click)="deleteEmployee(emp.id)">
+                                <mat-icon>delete</mat-icon>
+                              </button>
+                          </div>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
